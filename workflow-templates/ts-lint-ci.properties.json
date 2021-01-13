@@ -1,13 +1,5 @@
 {
   "name": "Good Money Organization [Typescript] Lint Workflow",
   "description": "Run eslint on pull requests to the default branch.",
-  "iconName": "eslint",
-  "categories": [
-    "TypeScript",
-    "TSX"
-  ],
-  "filePatterns": [
-    "package.json$",
-    ".eslintrc.js$"
-  ]
+  "iconName": "eslint"
 }
