@@ -1,0 +1,16 @@
+name: [Typescript] Lint CI
+
+on:
+  pull_request:
+    branches: [ $default-branch ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        run: echo Hello from Good Money Shared Workflow Templates :ioi:
