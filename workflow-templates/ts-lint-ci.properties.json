@@ -1,5 +1,5 @@
 {
-  "name": "Good Money Organization [Typescript] Lint Workflow",
+  "name": "Lint",
   "description": "Run eslint on pull requests to the default branch.",
   "iconName": "eslint"
 }
