@@ -1,0 +1,14 @@
+{
+  "name": "Lint",
+  "description": "Run eslint on pull requests to the default branch.",
+  "iconName": "eslint",
+  "categories": [
+    "Typescript",
+    "TSX",
+    "Javascript"
+  ],
+  "filePatterns": [
+    "package.json$",
+    ".eslintrc.js$"
+  ]
+}

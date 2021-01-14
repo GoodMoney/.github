@@ -1,5 +1,0 @@
-{
-  "name": "Lint",
-  "description": "Run eslint on pull requests to the default branch.",
-  "iconName": "eslint"
-}
