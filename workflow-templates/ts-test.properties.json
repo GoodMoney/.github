@@ -1,0 +1,13 @@
+{
+  "name": "Test",
+  "description": "Run tests on pull requests to the default branch.",
+  "iconName": "jest",
+  "categories": [
+    "Typescript",
+    "TSX",
+    "Javascript"
+  ],
+  "filePatterns": [
+    "package.json$"
+  ]
+}

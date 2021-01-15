@@ -1,0 +1,50 @@
+name: "[TS/JS] Test"
+
+on:
+  pull_request:
+    branches: [ $default-branch ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      # Don't forget to cache out
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      # Uncomment if your package install dependencies from our private
+      # GitHub registry.
+      # - name: Generate GitHub Registry Config
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_PRIVATE_PACKAGES_TOKEN }}
+      #   shell: bash
+      #   run: |
+      #     echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
+      #     echo "registry=https://registry.npmjs.org " >> .npmrc
+      #     echo "@goodmoney:registry=https://npm.pkg.github.com" >> .npmrc
+
+      - name: Install Dependencies
+        shell: bash
+        run: yarn
+
+      - name: Test
+        run: yarn test
